@@ -11,7 +11,7 @@ modular multiplication which is an expensive operation.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics{images/modmul.png}
+    \includegraphics{images/chapter_3/modmul.png}
     \caption{Modular multiplication} \label{fig:modmul}
 \end{figure}
 
@@ -29,7 +29,7 @@ and higher, so we can't do that either.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.25]{images/vispow10.png}
+    \includegraphics[scale=0.25]{images/chapter_3/vispow10.png}
     \caption{Visualization of powers of 10 from one to 1 billion.} \label{vispow10:fig}
 \end{figure}
 
@@ -63,7 +63,7 @@ more cheaply and the old fashion approach.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics{images/appliedCrypt.jpg}
+    \includegraphics{images/chapter_3/appliedCrypt.jpg}
     \caption{Cover of the handbook of applied cryptography} \label{fig:appliedCrypt}
 \end{figure}
 
@@ -71,7 +71,7 @@ The following approach is called the left to right binary exponentiation, also
 known as square multiply.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.4]{images/ltrbe.png}
+    \includegraphics[scale=0.4]{images/chapter_3/ltrbe.png}
     \caption{The pseudo-code was taken from the handbook of applied cryptography, page 615.} \label{fig:ltrbe}
 \end{figure}
 
@@ -85,11 +85,20 @@ In the beginning we set $A$ to be equal to $1$, and go over the bits from left
 to right (from the most significant to the least). Each time we do square ($A$
 equal $A$ times $A$, $A=A*A$) and multiply but we don't always multiply, we do
 it sometimes. If the current bit is $1$ (the \( i^{th}\) bit) then we multiply
-by $g$, $A=A*g$. This is the algorithm. Now, what happens when we do a squaring
+by $g$, $A=A*g$. This is the algorithm. You can see the algorithm flow in \Cref{fig:ltrbe-flow}.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.8]{images/chapter_3/left-to-right-binary-exponentiation-flow.png}
+    \caption{Flow of the left to right binary exponentiation algorithm.} \label{fig:ltrbe-flow}
+\end{figure}
+
+Now, what happens when we do a squaring
 operation downstairs? What happens to the exponent upstairs? Its multiplied by
 $2$. So \({g^{e}}^2 = g^{2e} \)  and  \(g*g^{e} = g^{e+1} \). Now, we can think
 of a binary string, you can write down the bits using shifting (multiplying by
 $2$ is shifting) and adding $1$ is just putting one in the place.
+
 
 So how many modular multiplications will be performed in order raise g to the
 power of $e$ (the string is of length $t$)? The answer is \(O(t)\) What is the
@@ -135,9 +144,10 @@ is called after Sun Tzu Suan, that was a teacher from the \nth{5} century and he
 wrote a book that contained all sorts of riddles and questions. And there is the
 riddle: 
 
-``there are certain things whose number is unknown.  If we count them by threes
-we have two left over; by fives we have three left over; and by sevens, two are
-left over. How many things are there?" 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.8]{images/chapter_3/CRT.png} \label{fig:crt}
+\end{figure}
 
 The answer is 23 and how it was discovered? Brute-force. So the CRT states that
 you have to have an equation set over modulo other multiplicative group such as
@@ -191,7 +201,7 @@ representation.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.7]{images/montg.PNG}
+    \includegraphics[scale=0.7]{images/chapter_3/montg.PNG}
     \caption{General sketch of Montgomery Exponentiation} \label{montg:fig}
 \end{figure}
 
@@ -275,7 +285,7 @@ secret key.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.4]{images/smartcard.png}
+    \includegraphics[scale=0.4]{images/chapter_3/smartcard.png}
     \caption{The timing attack principle} \label{fig:smart card}
 \end{figure}
 
@@ -421,7 +431,7 @@ didn't. If the next key bit is 1: \(m_2,m_3,m_5,m_8\) got extra reduction and
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.3]{images/extraRed.PNG}
+    \includegraphics[scale=0.3]{images/chapter_3/extraRed.PNG}
     \caption{Key bit guess simulation} \label{fig:extraRed}
 \end{figure}
 
@@ -435,7 +445,7 @@ the traces.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.3]{images/extraStat.PNG}
+    \includegraphics[scale=0.3]{images/chapter_3/extraStat.PNG}
     \caption{Guessing correctly the key bit makes the statics measurably different} \label{fig:extraStat}
 \end{figure}
 
@@ -485,21 +495,21 @@ in Matlab. The mat in Matlab is for matrix, we can define matrix like this:
 \begin{figure}[!ht]
     \centering
     \fbox{
-    \includegraphics[scale=0.5]{images/defmat.png}}
+    \includegraphics[scale=0.5]{images/chapter_3/defmat.png}}
     \caption{Defining a matrix of size 1x10 with increasing numbers from 1 [1,2,3,…,10]} \label{fig:defmat}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \fbox{
-    \includegraphics[scale=0.5]{images/defmat2.png}}
+    \includegraphics[scale=0.5]{images/chapter_3/defmat2.png}}
     \caption{Adding the matrix with 2 increases all the numbers in the matrix by 2 (Same with multiplication and log)} \label{fig:defmat2}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \fbox{
-    \includegraphics[scale=0.5]{images/defmat3.png}}
+    \includegraphics[scale=0.5]{images/chapter_3/defmat3.png}}
     \caption{\(x>5\) will result with logical array [0, 0, 0, 0…, 1, 1, 1, 1]} \label{fig:defmat3}
 \end{figure}
 
@@ -516,13 +526,13 @@ the student T-test.
 \begin{figure}[!ht]
     \centering
     \fbox{
-    \includegraphics[scale=0.6]{images/defmat4.png}}
+    \includegraphics[scale=0.6]{images/chapter_3/defmat4.png}}
     \caption{In the code, 2 vectors are created - x and y in the same size (which is not obligatory), $x$ will be randomly distributed with a mean of \(mu_{1}\) and variance of \(sigma2_1\) and vector $x$ is going to be random distributed with a mean of \(mu_2\) and variance of \(sigma2_2\). Then there is a code for plotting both vectors (in different colors).} \label{fig:defmat4}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.6]{images/defmatplot.png}
+    \includegraphics[scale=0.6]{images/chapter_3/defmatplot.png}
     \caption{Plotting of the vectors for \(mu_1 = 10, mu_2 = 20\)} \label{fig:defmatplot}
 \end{figure}
 
@@ -539,7 +549,7 @@ close distributions.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.6]{images/defmatplot2.png}
+    \includegraphics[scale=0.6]{images/chapter_3/defmatplot2.png}
     \caption{Plotting of the vectors for \(mu_1 = 10, mu_2 = 11\)} \label{fig:defmatplot2}
 \end{figure}
 
@@ -558,7 +568,7 @@ Timing Attack" which you are encouraged to read.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.25]{images/figpita.png}
+    \includegraphics[scale=0.25]{images/chapter_3/figpita.png}
     \caption{x axis – is the bit index from right to left (the left most bit is known to be 1) and y axis – is the distance of means we chose (some times its 500 or 100 but after 151 the distance of means is a lot smaller which means we guessed a bit wrong). How to solve it? Answer: go backwards and backtrack.} \label{fig:figpita}
 \end{figure}
 
@@ -570,7 +580,7 @@ the IPsec protocol and was used for kits change in the IP protocol.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.25]{images/paul.png}
+    \includegraphics[scale=0.25]{images/chapter_3/paul.png}
     \caption{The message.} \label{fig:paul}
 \end{figure}
 
@@ -638,7 +648,7 @@ we wont be able to attack it, but we could use power analysis.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.15]{images/saama.png}
+    \includegraphics[scale=0.15]{images/chapter_3/saama.png}
     \caption{Square and always multiple algorithm} \label{fig:saama}
 \end{figure}
 
